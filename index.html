@@ -14,6 +14,12 @@ body{
   font-family:'Poppins', sans-serif;
   background:#f4f6f9;
   color:#333;
+  animation:fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn{
+  from{opacity:0;}
+  to{opacity:1;}
 }
 
 header{
@@ -26,6 +32,12 @@ header{
 header img{
   width:140px;
   margin-bottom:15px;
+  animation:slideDown 1.2s ease;
+}
+
+@keyframes slideDown{
+  from{transform:translateY(-30px);opacity:0;}
+  to{transform:translateY(0);opacity:1;}
 }
 
 header h1{
@@ -46,6 +58,12 @@ section{
   padding:40px;
   border-radius:16px;
   box-shadow:0 10px 25px rgba(0,0,0,0.1);
+  animation:fadeUp 1s ease;
+}
+
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(30px);}
+  to{opacity:1; transform:translateY(0);}
 }
 
 section h2{
@@ -62,10 +80,18 @@ section h2{
   gap:18px;
   margin-bottom:28px;
   align-items:flex-start;
+  padding:15px;
+  border-radius:12px;
+  transition:transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service:hover{
+  transform:translateY(-5px);
+  box-shadow:0 8px 18px rgba(0,0,0,0.12);
 }
 
 .icon{
-  font-size:30px;        /* 🔽 tamaño reducido */
+  font-size:30px;
   width:44px;
   height:44px;
   line-height:44px;
@@ -73,6 +99,11 @@ section h2{
   background:#f1f5f9;
   border-radius:10px;
   flex-shrink:0;
+  transition:transform 0.3s ease;
+}
+
+.service:hover .icon{
+  transform:scale(1.1);
 }
 
 .service strong{
@@ -109,6 +140,11 @@ footer{
   font-weight:bold;
   text-decoration:none;
   box-shadow:0 6px 15px rgba(0,0,0,0.3);
+  transition:transform 0.3s ease;
+}
+
+.whatsapp:hover{
+  transform:scale(1.08);
 }
 </style>
 </head>
@@ -193,12 +229,11 @@ Atención 100% virtual mediante Facebook, WhatsApp y Classroom, alineados a las 
   </div>
 </div>
 
-<p><strong>Importante:</strong> Garantizamos un acompañamiento honesto y seguro. El resultado final es fruto de tu aprendizaje, guiado por nuestra experiencia académica.</p>
+<p><strong>Importante:</strong> Garantizamos un acompañamiento honesto y seguro.</p>
 </section>
 
 <section>
 <h2>🧠 Áreas y Niveles</h2>
-<p><strong>Áreas:</strong></p>
 <span class="badge">Ciencias Sociales</span>
 <span class="badge">Administración</span>
 <span class="badge">Contabilidad</span>
