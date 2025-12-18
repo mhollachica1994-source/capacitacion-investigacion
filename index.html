@@ -9,41 +9,55 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
 <style>
+*{box-sizing:border-box}
+
 body{
   margin:0;
   font-family:'Poppins', sans-serif;
   background:#f4f6f9;
   color:#333;
-  animation:fadeIn 1s ease-in;
 }
 
-@keyframes fadeIn{
-  from{opacity:0;}
-  to{opacity:1;}
+/* ===== MENÚ ===== */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:#0b3c5d;
+  padding:12px 20px;
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  z-index:1000;
 }
 
+nav a{
+  color:white;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:500;
+}
+
+nav a:hover{
+  text-decoration:underline;
+}
+
+/* ===== HEADER ===== */
 header{
   background:linear-gradient(135deg,#0b3c5d,#1d6fa5);
   color:white;
   text-align:center;
-  padding:60px 20px;
+  padding:120px 20px 60px;
 }
 
 header img{
   width:140px;
   margin-bottom:15px;
-  animation:slideDown 1.2s ease;
-}
-
-@keyframes slideDown{
-  from{transform:translateY(-30px);opacity:0;}
-  to{transform:translateY(0);opacity:1;}
 }
 
 header h1{
   font-family:'Playfair Display', serif;
   font-size:40px;
-  margin:10px 0;
 }
 
 header p{
@@ -51,6 +65,7 @@ header p{
   font-style:italic;
 }
 
+/* ===== SECCIONES ===== */
 section{
   background:white;
   max-width:1000px;
@@ -58,36 +73,29 @@ section{
   padding:40px;
   border-radius:16px;
   box-shadow:0 10px 25px rgba(0,0,0,0.1);
-  animation:fadeUp 1s ease;
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 0.8s ease;
 }
 
-@keyframes fadeUp{
-  from{opacity:0; transform:translateY(30px);}
-  to{opacity:1; transform:translateY(0);}
+section.show{
+  opacity:1;
+  transform:translateY(0);
 }
 
 section h2{
   font-family:'Playfair Display', serif;
   color:#0b3c5d;
-  margin-bottom:20px;
   border-left:6px solid #1d6fa5;
   padding-left:12px;
+  margin-bottom:20px;
 }
 
-/* SERVICIOS */
+/* ===== SERVICIOS ===== */
 .service{
   display:flex;
   gap:18px;
-  margin-bottom:28px;
-  align-items:flex-start;
-  padding:15px;
-  border-radius:12px;
-  transition:transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.service:hover{
-  transform:translateY(-5px);
-  box-shadow:0 8px 18px rgba(0,0,0,0.12);
+  margin-bottom:25px;
 }
 
 .icon{
@@ -98,19 +106,34 @@ section h2{
   text-align:center;
   background:#f1f5f9;
   border-radius:10px;
-  flex-shrink:0;
-  transition:transform 0.3s ease;
 }
 
-.service:hover .icon{
-  transform:scale(1.1);
+/* ===== BOTÓN ===== */
+.cta{
+  display:inline-block;
+  margin-top:20px;
+  background:#1d6fa5;
+  color:white;
+  padding:14px 26px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
 }
 
-.service strong{
-  font-size:17px;
-  color:#0b3c5d;
+.cta:hover{
+  background:#154f78;
 }
 
+/* ===== TESTIMONIOS ===== */
+.testimonio{
+  background:#f1f5f9;
+  padding:20px;
+  border-radius:12px;
+  margin-bottom:15px;
+  font-style:italic;
+}
+
+/* ===== BADGES ===== */
 .badge{
   display:inline-block;
   background:#1d6fa5;
@@ -121,14 +144,15 @@ section h2{
   margin:4px;
 }
 
+/* ===== FOOTER ===== */
 footer{
   background:#0b3c5d;
   color:white;
   text-align:center;
   padding:25px;
-  margin-top:40px;
 }
 
+/* ===== WHATSAPP ===== */
 .whatsapp{
   position:fixed;
   bottom:20px;
@@ -139,128 +163,96 @@ footer{
   border-radius:50px;
   font-weight:bold;
   text-decoration:none;
-  box-shadow:0 6px 15px rgba(0,0,0,0.3);
-  transition:transform 0.3s ease;
 }
 
-.whatsapp:hover{
-  transform:scale(1.08);
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  header h1{font-size:32px}
+  section{margin:20px}
+  .service{flex-direction:column}
+  nav{flex-wrap:wrap}
 }
 </style>
 </head>
 
 <body>
 
+<nav>
+<a href="#somos">Quiénes Somos</a>
+<a href="#servicios">Servicios</a>
+<a href="#testimonios">Testimonios</a>
+<a href="#contacto">Contacto</a>
+</nav>
+
 <header>
-  <img src="logo.png" alt="Logo Capacitación de la Investigación">
-  <h1>Capacitación de la Investigación</h1>
-  <p>Guiando, Orientando y Enseñando</p>
+<img src="logo.png" alt="Logo">
+<h1>Capacitación de la Investigación</h1>
+<p>Guiando, Orientando y Enseñando</p>
+<a class="cta" href="https://wa.me/51936132122">Solicitar asesoría</a>
 </header>
 
-<section>
+<section id="somos">
 <h2>🎓 Quiénes Somos</h2>
-<p style="font-size:28px;">👩‍🏫👨‍🏫</p>
-<p>
-Somos <strong>Capacitación de la Investigación</strong>, un <strong>grupo de profesionales</strong> dedicado a la asesoría académica y acompañamiento en investigación, con más de 3 años de experiencia apoyando a estudiantes y profesionales en trabajos académicos originales y éticos.
-</p>
-<p>
-Atención 100% virtual mediante Facebook, WhatsApp y Classroom, alineados a las exigencias universitarias.
-</p>
+<p>👩‍🏫👨‍🏫 Somos un grupo de profesionales con más de 3 años de experiencia en asesoría académica e investigación ética.</p>
 </section>
 
-<section>
-<h2>🎯 Misión</h2>
-<p>Guiar, orientar y enseñar a la comunidad académica para alcanzar sus objetivos personales y profesionales mediante la investigación ética y el aprendizaje autónomo.</p>
-</section>
-
-<section>
-<h2>🌍 Visión</h2>
-<p>Posicionarnos como un grupo profesional confiable a nivel local, nacional e internacional en servicios de asesoría académica.</p>
-</section>
-
-<section>
+<section id="servicios">
 <h2>📚 Nuestros Servicios</h2>
 
 <div class="service">
-  <div class="icon">📘</div>
-  <div>
-    <strong>Asesoría Metodológica</strong>
-    <ul>
-      <li>Planteamiento del problema</li>
-      <li>Objetivos, hipótesis y variables</li>
-      <li>Tipo de estudio, diseño, población y muestra</li>
-    </ul>
-  </div>
+<div class="icon">📘</div>
+<div><strong>Asesoría Metodológica</strong></div>
 </div>
 
 <div class="service">
-  <div class="icon">✍️</div>
-  <div>
-    <strong>Redacción Académica</strong>
-    <ul>
-      <li>Ortografía y estilo</li>
-      <li>Claridad y coherencia</li>
-      <li>Normas APA, Vancouver y otras</li>
-    </ul>
-  </div>
+<div class="icon">✍️</div>
+<div><strong>Redacción Académica</strong></div>
 </div>
 
 <div class="service">
-  <div class="icon">📊</div>
-  <div>
-    <strong>Orientación Estadística</strong>
-    <ul>
-      <li>Métodos estadísticos</li>
-      <li>Interpretación de resultados</li>
-      <li>Uso de SPSS y Jamovi</li>
-    </ul>
-  </div>
+<div class="icon">📊</div>
+<div><strong>Orientación Estadística</strong></div>
 </div>
 
 <div class="service">
-  <div class="icon">🎓</div>
-  <div>
-    <strong>Acompañamiento en Investigación</strong>
-    <ul>
-      <li>Resolución de dudas académicas</li>
-      <li>Retroalimentación continua</li>
-      <li>Seguimiento de cronogramas</li>
-    </ul>
-  </div>
+<div class="icon">🎓</div>
+<div><strong>Acompañamiento en Investigación</strong></div>
 </div>
 
-<p><strong>Importante:</strong> Garantizamos un acompañamiento honesto y seguro.</p>
 </section>
 
-<section>
-<h2>🧠 Áreas y Niveles</h2>
-<span class="badge">Ciencias Sociales</span>
-<span class="badge">Administración</span>
-<span class="badge">Contabilidad</span>
-<span class="badge">Educación</span>
-<span class="badge">Trabajo Social</span>
-<span class="badge">Sociología</span>
-<span class="badge">Artes</span>
+<section id="testimonios">
+<h2>⭐ Testimonios</h2>
 
-<p style="margin-top:20px;"><strong>Niveles:</strong> 🎓 Pregrado · 🎓 Maestría · 🎓 Segunda Especialización</p>
+<div class="testimonio">“Excelente orientación, ahora entiendo mi investigación.” – Estudiante</div>
+<div class="testimonio">“Muy responsables y claros, totalmente recomendados.” – Tesista</div>
+<div class="testimonio">“Aprendí a investigar de forma ética.” – Profesional</div>
+
 </section>
 
-<section>
-<h2>🤝 Compromiso Ético</h2>
-<p>Nuestro compromiso es enseñar, orientar y guiar, garantizando un proceso académico honesto, responsable y seguro.</p>
-</section>
-
-<section>
+<section id="contacto">
 <h2>📞 Contacto</h2>
-<p>📧 Correo: <strong>mhollachica.1994@gmail.com</strong></p>
-<p>📩 Consultas directas por WhatsApp</p>
+<p>📧 mhollachica.1994@gmail.com</p>
+<a class="cta" href="https://wa.me/51936132122">Escríbenos por WhatsApp</a>
 </section>
 
 <footer>
 📘 Guiando, Orientando y Enseñando – Aprender, investigar y avanzar.
 </footer>
 
-<a class="whatsapp" href="https://wa.me/51936132122" target="_blank">WhatsApp</a>
+<a class="whatsapp" href="https://wa.me/51936132122">WhatsApp</a>
+
+<script>
+const sections=document.querySelectorAll("section");
+window.addEventListener("scroll",()=>{
+  sections.forEach(sec=>{
+    const top=sec.getBoundingClientRect().top;
+    if(top<window.innerHeight-100){
+      sec.classList.add("show");
+    }
+  });
+});
+</script>
 
 </body>
 </html>
